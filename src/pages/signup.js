@@ -83,16 +83,12 @@ function Signup() {
 
     if (isValid) {
       try {
-        // const { fullName, email, password, phone } = userDetails;
         userDetails.email = email;
         userDetails.fullName = fullName;
         userDetails.password = password;
         userDetails.phone = phone;
-        // console.log(userDetails);
+
         await signupUser({ fullName, email, password, phone });
-        // If signup successful, proceed to login
-        // await loginUser({ email, password });
-        // Optionally, redirect to another page or perform any action after successful login
       } catch (error) {
         console.error("Signup or login failed:", error);
       }
@@ -115,13 +111,9 @@ function Signup() {
 
     if (isValid) {
       try {
-        // const { fullName, email, password, phone } = userDetails;
         userDetails.email = email;
         userDetails.password = password;
-        // await signupUser({ fullName, email, password, phone });
-        // If signup successful, proceed to login
         await loginUser({ email, password });
-        // Optionally, redirect to another page or perform any action after successful login
       } catch (error) {
         console.error("Signup or login failed:", error);
       }
