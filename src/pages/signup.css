@@ -38,7 +38,6 @@
     display: flex;
     height: 5vh;
     justify-content: center;
-    
     width: 30vw;
 }
 #bto1{
@@ -60,6 +59,9 @@
     border: 1px solid rgb(219, 219, 219); 
 
 }
+
+
+
 
 .bl{
     display: flex;
@@ -156,7 +158,7 @@
     .container2{
         display: flex;
         margin-left: 18vw;
-        /* width: 100vw; */
+        width: 80vw;
         /* position: initial; */
         margin-top: 5vh;
     }
@@ -216,3 +218,5 @@
         width: 30vw;
     }
 }
+
+

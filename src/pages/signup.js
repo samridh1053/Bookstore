@@ -10,6 +10,12 @@ import { signupUser, loginUser } from "../services/UserService";
 import TabPanel from "@mui/lab/TabPanel";
 
 function Signup() {
+  const userDetails = {
+    fullName: "",
+    email: "",
+    password: "",
+    phone: "",
+  };
   const [value, setValue] = useState("1");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,6 +29,12 @@ function Signup() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setFullName(name);
   };
 
   const validatePassword = (password) => {
@@ -71,8 +83,42 @@ function Signup() {
 
     if (isValid) {
       try {
-        // Call signup API function
+        // const { fullName, email, password, phone } = userDetails;
+        userDetails.email = email;
+        userDetails.fullName = fullName;
+        userDetails.password = password;
+        userDetails.phone = phone;
+        // console.log(userDetails);
         await signupUser({ fullName, email, password, phone });
+        // If signup successful, proceed to login
+        // await loginUser({ email, password });
+        // Optionally, redirect to another page or perform any action after successful login
+      } catch (error) {
+        console.error("Signup or login failed:", error);
+      }
+    }
+  };
+
+  const handleLogin = async () => {
+    setEmailError("");
+    setPasswordError("");
+
+    let isValid = true;
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email address");
+      isValid = false;
+    }
+    if (!validatePassword(password)) {
+      setPasswordError("Password must be at least 8 characters long");
+      isValid = false;
+    }
+
+    if (isValid) {
+      try {
+        // const { fullName, email, password, phone } = userDetails;
+        userDetails.email = email;
+        userDetails.password = password;
+        // await signupUser({ fullName, email, password, phone });
         // If signup successful, proceed to login
         await loginUser({ email, password });
         // Optionally, redirect to another page or perform any action after successful login
@@ -98,11 +144,22 @@ function Signup() {
             <TabContext value={value}>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
                 <TabList
+                  className="tab"
                   onChange={handleChange}
                   aria-label="lab API tabs example"
                 >
-                  <Tab label="LOGIN" value="1" />
-                  <Tab label="SIGNUP" value="2" />
+                  <Tab
+                    label="LOGIN"
+                    value="1"
+                    id="tab1"
+                    style={{ width: "18vw" }}
+                  />
+                  <Tab
+                    label="SIGNUP"
+                    value="2"
+                    id="tab2"
+                    style={{ width: "18vw" }}
+                  />
                 </TabList>
               </Box>
               <TabPanel value="1">
@@ -117,7 +174,12 @@ function Signup() {
                   </div>
                 </div>
                 <div className="btto">
-                  <button type="button" id="bto2">
+                  <button
+                    type="button"
+                    id="bto2"
+                    onClick={handleLogin}
+                    onSubmit={(e) => e.preventDefault()}
+                  >
                     Log In
                   </button>
                 </div>
@@ -171,7 +233,12 @@ function Signup() {
                   <div className="block2"></div>
                 </div>
                 <div className="bto">
-                  <button type="button" id="bto1" onClick={handleSignup}>
+                  <button
+                    type="button"
+                    id="bto1"
+                    onClick={handleSignup}
+                    onSubmit={(e) => e.preventDefault()}
+                  >
                     Sign Up
                   </button>
                 </div>
