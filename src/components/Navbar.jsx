@@ -22,6 +22,8 @@ import {
 } from "../styles/NavbarStyles";
 import MarkunreadMailboxOutlinedIcon from "@mui/icons-material/MarkunreadMailboxOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { useNavigate } from "react-router-dom";
+
 // import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 const Navbar = () => {
@@ -30,6 +32,12 @@ const Navbar = () => {
     setOpen(!open);
     console.log("clicked");
   };
+  const navigate = useNavigate();
+  const handleChange = () => {
+    navigate("/");
+    window.localStorage.removeItem("token");
+  };
+
   return (
     <NavbarContainer>
       <NavbarIncontainer>
@@ -51,9 +59,9 @@ const Navbar = () => {
         <NavBarRightContainer>
           <NavProfile onClick={handleClick}>
             <ProfileLogo />
-            <NameTag>Poonam</NameTag>
+            <NameTag>Samridh</NameTag>
             <ProfilePopUp style={{ display: open ? "flex" : "none" }}>
-              <Title>Hello Poonam</Title>
+              <Title>Hello Samridh</Title>
               <Link>
                 <ProfileLogo2 sx={{ fontSize: 16 }} />
                 Profile
@@ -66,7 +74,7 @@ const Navbar = () => {
                 <FavoriteBorderOutlinedIcon sx={{ fontSize: 16 }} />
                 My Wishlist
               </Link>
-              <LogoutBtn>Logout</LogoutBtn>
+              <LogoutBtn onClick={handleChange}>Logout</LogoutBtn>
             </ProfilePopUp>
           </NavProfile>
           <NavCart href="/cart">

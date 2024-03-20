@@ -42,8 +42,10 @@
 }
 #bto1{
     height: 5vh;
-    background-color: red;
+    background-color: #A03037;
     width: 20vw;
+    border: none;
+    border-radius: 2px;
 }
 
 .container2{
@@ -146,8 +148,10 @@
 }
 #bto2{
     height: 5vh;
-    background-color: red;
+    background-color: #A03037;
     width: 20vw;
+    border: none;
+    border-radius: 2px;
 }
 
 @media only screen and (max-width: 700px){

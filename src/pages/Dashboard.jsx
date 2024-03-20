@@ -29,7 +29,6 @@ const Dashboard = () => {
   async function getBookList() {
     const books = await getBooks();
     setBooksList(books?.result);
-    // console.log(booksList);
   }
   useEffect(() => {
     getBookList();
