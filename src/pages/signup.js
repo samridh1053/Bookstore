@@ -229,7 +229,7 @@ function Signup() {
                     type="button"
                     id="bto1"
                     onClick={handleSignup}
-                    onSubmit={(e) => e.preventDefault()}
+                    // onSubmit={(e) => e.preventDefault()}
                   >
                     Sign Up
                   </button>
