@@ -1,15 +1,13 @@
 import React from "react";
 import { FooterContainer, FooterOuterContainer } from "../styles/FooterStyles";
 
-function Footer() {
+const Footer = () => {
   return (
     <FooterOuterContainer>
       <FooterContainer>
-        <p style={{ color: "white" }}>
-          Copyright 2020, Bookstore Private Limited. All Rights Reserved
-        </p>
+        Copyright 2020, Bookstore Private Limited. All Rights Reserved
       </FooterContainer>
     </FooterOuterContainer>
   );
-}
+};
 export default Footer;

@@ -11,4 +11,8 @@ export const FooterOuterContainer = styled.div`
 export const FooterContainer = styled.div`
   width: 100%;
   max-width: 1000px;
+  font: normal normal medium 12px/15px Lato;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
 `;

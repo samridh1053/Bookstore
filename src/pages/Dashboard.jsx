@@ -23,6 +23,7 @@ import {
   TitleContainer,
 } from "../styles/DashboardStyles";
 import StarIcon from "@mui/icons-material/Star";
+import Footer from "../components/Footer";
 
 const Dashboard = () => {
   const [booksList, setBooksList] = useState([]);
@@ -71,6 +72,7 @@ const Dashboard = () => {
           </CardContainer>
         </DashboardContianer>
       </DashboardOuterContainer>
+      <Footer></Footer>
     </div>
   );
 };
