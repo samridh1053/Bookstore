@@ -108,16 +108,18 @@ function Signup() {
       setPasswordError("Password must be at least 8 characters long");
       isValid = false;
     }
-
-    if (isValid) {
-      try {
-        userDetails.email = email;
-        userDetails.password = password;
-        await loginUser({ email, password });
-      } catch (error) {
-        console.error("Signup or login failed:", error);
-      }
+    console.log("working");
+    // if (isValid) {
+    try {
+      userDetails.email = email;
+      userDetails.password = password;
+      const userData = await loginUser({ email, password });
+      // console.log(userData);
+      window.localStorage.setItem("token", userData?.result?.accessToken);
+    } catch (error) {
+      console.error("Signup or login failed:", error);
     }
+    // }
   };
 
   return (

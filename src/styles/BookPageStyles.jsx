@@ -53,6 +53,7 @@ export const LeftContainer = styled.div`
   flex-direction: row;
   width: 45%;
   height: 80vh;
+  gap: 5px;
 
   @media (max-width: 800px) {
     width: 100%;
@@ -62,67 +63,71 @@ export const LeftContainer = styled.div`
 export const BookImageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 79%;
-  height: 80vh;
+  width: 75%;
+  height: fit-content;
 `;
 
+export const Book2Container = styled.div`
+  width: 100%;
+  padding: 20px;
+  display: flex;
+`;
 export const BookImage = styled.div`
   display: flex;
-  width: 99.5%;
-  height: 55vh;
+  width: calc(100%-40px);
+  height: fit-content;
   border: 1px solid #d1d1d1;
   /* background-color: greenyellow; */
-  justify-content: space-evenly;
-  padding-top: 4vh;
+  /* justify-content: space-evenly; */
+  padding: 20px;
 `;
 
 export const CardImage3 = styled.img`
-  height: 50vh;
-  width: 20vw;
+  height: auto;
+  width: 100%;
 `;
 
 export const SmallBooksContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 80vh;
-  width: 22%;
+  height: fit-content;
+  width: 25%;
 `;
 
 export const SmallBooksContainer1 = styled.div`
   display: flex;
-  height: 15vh;
-  width: 7vw;
+  height: fit-content;
+  width: calc(100%-10px);
   outline: 2px;
   background-color: #ffe7e9;
   border: 1px solid #7c1e1e;
-  justify-content: space-evenly;
-  padding-top: 1vh;
+  /* justify-content: space-evenly; */
+  padding: 5px;
 `;
 
 export const CardImage = styled.img`
-  height: 14vh;
-  width: 6vw;
+  height: auto;
+  width: 100%;
 `;
 
 export const CardImage2 = styled.img`
-  height: 14vh;
-  width: 6vw;
+  height: auto;
+  width: 100%;
 `;
 
 export const SmallBooksContainer2 = styled.div`
   display: flex;
-  height: 15vh;
-  width: 7vw;
+  height: fit-content;
+  width: calc(100%-10px);
   outline: 2px;
   border: 1px solid #d1d1d1;
-  justify-content: space-evenly;
-  padding-top: 1vh;
+  /* justify-content: space-evenly; */
+  padding: 5px;
 `;
 
 export const BtnContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: 10vh;
   width: 100%;
   /* background-color: blue; */
   justify-content: space-between;

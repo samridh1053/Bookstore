@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import {
   AuthorTag,
@@ -44,10 +44,13 @@ import {
   AddButton,
   WishButton,
   FavoriteIconContainer,
+  Book2Container,
 } from "../styles/BookPageStyles";
 import { getBooks } from "../services/GetBooks";
 import StarIcon from "@mui/icons-material/Star";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import Footer from "../components/Footer";
+import { addCartItem, getCartItem } from "../services/CartServices";
 
 const BookPage = () => {
   let { bookId } = useParams();
@@ -56,6 +59,8 @@ const BookPage = () => {
   const [number, setNumber] = useState(0);
   const [counter, setCounter] = useState(1);
   const [count, setCount] = useState(0);
+  const location = useLocation();
+  console.log(location);
 
   const clickArray = [1, 2, 3, 4, 5];
 
@@ -63,16 +68,15 @@ const BookPage = () => {
     const books = await getBooks();
     setBooksList(books?.result);
     getBook();
-    // console.log(booksList);
-    // await setBook(booksList.filter(filterBook)[0]);
-    // console.log(booksList.filter(filterBook)[0]);
+    getCart();
   }
 
   async function getBook() {
     await setBook(booksList.filter(filterBook)[0]);
-    // setCounter(2);
   }
-
+  const getCart = async () => {
+    await getCartItem();
+  };
   const filterBook = (book) => {
     return book._id === bookId;
   };
@@ -80,6 +84,10 @@ const BookPage = () => {
   const handleClick = (num) => {
     setNumber(num);
     console.log(num);
+  };
+
+  const handleAddCart = async () => {
+    await addCartItem(book?._id);
   };
 
   useEffect(() => {
@@ -106,11 +114,13 @@ const BookPage = () => {
                 </SmallBooksContainer2>
               </SmallBooksContainer>
               <BookImageContainer>
+                {/* <Book2Container> */}
                 <BookImage>
                   <CardImage3 src={require("../assests/2.png")} />
                 </BookImage>
+                {/* </Book2Container> */}
                 <BtnContainer>
-                  <AddButton> ADD TO BAG</AddButton>
+                  <AddButton onClick={handleAddCart}> ADD TO BAG</AddButton>
                   <WishButton>
                     <FavoriteIconContainer />
                     WISHLIST
@@ -176,6 +186,7 @@ const BookPage = () => {
           {/* Book ({book?.bookName}) */}
         </BookContianer>
       </BookOuterContainer>
+      <Footer />
     </div>
   );
 };

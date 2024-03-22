@@ -7,5 +7,6 @@ export const signupUser = async (userDetails) => {
 };
 export const loginUser = async (userDetails) => {
   const response = await axios.post(`${baseUrl}/login`, userDetails);
-  console.log(response.data);
+  // console.log(response.data);
+  return response?.data;
 };
