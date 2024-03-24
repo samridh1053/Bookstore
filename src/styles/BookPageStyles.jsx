@@ -150,6 +150,40 @@ export const AddButton = styled.button`
   justify-content: space-evenly;
 `;
 
+export const IncrementContainer = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+
+export const IncrementButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+`;
+
+export const TextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  border: 1px solid #dbdbdb;
+`;
+
+export const DecrementButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 12px; */
+  height: 38px;
+  width: 38px;
+  border-radius: 100%;
+  border: 1px solid #dbdbdb;
+`;
+
 export const WishButton = styled.button`
   display: flex;
   width: 11vw;

@@ -45,37 +45,52 @@ import {
   WishButton,
   FavoriteIconContainer,
   Book2Container,
+  DecrementButton,
+  IncrementContainer,
+  TextContainer,
+  IncrementButton,
 } from "../styles/BookPageStyles";
 import { getBooks } from "../services/GetBooks";
 import StarIcon from "@mui/icons-material/Star";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import Footer from "../components/Footer";
-import { addCartItem, getCartItem } from "../services/CartServices";
+import {
+  addCartItem,
+  getCartItem,
+  updateCartItem,
+} from "../services/CartServices";
 
 const BookPage = () => {
   let { bookId } = useParams();
   const [booksList, setBooksList] = useState([]);
   const [book, setBook] = useState({});
   const [number, setNumber] = useState(0);
-  const [counter, setCounter] = useState(1);
-  const [count, setCount] = useState(0);
-  const location = useLocation();
-  console.log(location);
-
-  const clickArray = [1, 2, 3, 4, 5];
+  const [quantity, setQuantity] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [cartList, setCartList] = useState([]);
 
   async function getBookList() {
     const books = await getBooks();
     setBooksList(books?.result);
     getBook();
-    getCart();
+
+    const cartItem = await getCartItem();
+    setCartList(cartItem?.result);
+    getCart(book?._id);
   }
 
   async function getBook() {
     await setBook(booksList.filter(filterBook)[0]);
   }
-  const getCart = async () => {
-    await getCartItem();
+  const getCart = (id) => {
+    console.log(id);
+    cartList?.map((item) => {
+      if (item?.product_id?._id === id) {
+        console.log(true);
+        setOpen(true);
+        // setNumber(item.quantityToBuy);
+      }
+    });
   };
   const filterBook = (book) => {
     return book._id === bookId;
@@ -87,7 +102,24 @@ const BookPage = () => {
   };
 
   const handleAddCart = async () => {
-    await addCartItem(book?._id);
+    setOpen(true);
+    await addCartItem(book?._id, JSON.stringify(book));
+  };
+
+  const handleDecrement = async () => {
+    setQuantity(quantity - 1);
+    const quantityToBuy = {
+      quantityToBuy: quantity,
+    };
+    await updateCartItem(book?._id, JSON.stringify(quantityToBuy));
+  };
+
+  const handleIncrement = async () => {
+    setQuantity(quantity + 1);
+    const quantityToBuy = {
+      quantityToBuy: quantity,
+    };
+    await updateCartItem(book?._id, JSON.stringify(quantityToBuy));
   };
 
   useEffect(() => {
@@ -120,7 +152,20 @@ const BookPage = () => {
                 </BookImage>
                 {/* </Book2Container> */}
                 <BtnContainer>
-                  <AddButton onClick={handleAddCart}> ADD TO BAG</AddButton>
+                  {!open ? (
+                    <AddButton onClick={handleAddCart}> ADD TO BAG</AddButton>
+                  ) : (
+                    <IncrementContainer>
+                      <DecrementButton onClick={handleDecrement}>
+                        -
+                      </DecrementButton>
+                      <TextContainer>{quantity}</TextContainer>
+                      <IncrementButton onClick={handleIncrement}>
+                        +
+                      </IncrementButton>
+                    </IncrementContainer>
+                  )}
+
                   <WishButton>
                     <FavoriteIconContainer />
                     WISHLIST
