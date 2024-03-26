@@ -5,7 +5,6 @@ export const HurrayOuterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: red; */
 `;
 
 export const HurrayContianer = styled.div`
@@ -13,7 +12,6 @@ export const HurrayContianer = styled.div`
   padding-bottom: 60px;
   width: 100%;
   max-width: 1000px;
-  background-color: blue;
 `;
 
 export const HurrayImageContainer = styled.div`
@@ -24,7 +22,6 @@ export const HurrayImageContainer = styled.div`
   padding-bottom: 40px;
   width: 100%;
   max-width: 1000px;
-  background-color: greenyellow;
   align-items: center;
 `;
 
@@ -39,7 +36,6 @@ export const ContentContainer = styled.div`
   width: 50%;
   align-items: center;
   padding: 20px;
-  /* background-color: pink; */
   margin-top: 20px;
   font: normal normal normal 18px/22px Lato;
   text-align: center;
@@ -53,13 +49,14 @@ export const CenteredTableContainer = styled.div`
   width: 100%;
   max-width: 1000px;
 `;
+
 export const TableContainer1 = styled.div`
   display: flex;
   border: 1px solid #dcdcdc;
   flex-direction: row;
   justify-content: space-around;
   width: 80%;
-  background: #fafafa 0% 0% no-repeat padding-box;
+  background-color: #fafafa;
 `;
 
 export const TableContainer2 = styled.div`
@@ -67,10 +64,33 @@ export const TableContainer2 = styled.div`
   border: 1px solid #dcdcdc;
   flex-direction: row;
   width: 80%;
-  background-color: burlywood;
 `;
 
 export const TableCell = styled.table`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  text-align: left;
   padding: 10px;
+  width: 33%;
+`;
+
+export const ShopButtonContainer = styled.div`
+  display: flex;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  justify-content: center;
+`;
+
+export const ShopButton = styled.a`
+  display: flex;
+  background-color: #3371b5;
+  flex-direction: row;
+  border-radius: 3px;
+  font: normal normal medium 14px/17px Lato;
+  text-transform: uppercase;
+  color: white;
+  padding: 10px 26px;
+  text-decoration: none;
+  cursor: pointer;
 `;

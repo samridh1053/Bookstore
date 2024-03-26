@@ -7,11 +7,14 @@ import {
   HurrayContianer,
   HurrayImageContainer,
   HurrayOuterContainer,
+  ShopButton,
+  ShopButtonContainer,
   TableCell,
   TableContainer1,
   TableContainer2,
 } from "../styles/HurrayStyles";
-import { TableContainer } from "@mui/material";
+
+import Footer from "../components/Footer";
 
 export const Hurray = () => {
   return (
@@ -39,14 +42,17 @@ export const Hurray = () => {
               <TableCell>admin@bookstore.com</TableCell>
               <TableCell>+91 8163475881</TableCell>
               <TableCell>
-                42, 14th Main, 15th Cross, Sector 4 ,opp to BDA <br />
-                complex, near Kumarakom restaurant, HSR Layout,
-                <br /> Bangalore 560034
+                42, 14th Main, 15th Cross, Sector 4 ,opp to BDA complex, near
+                <br /> Kumarakom restaurant, HSR Layout, Bangalore 560034
               </TableCell>
             </TableContainer2>
           </CenteredTableContainer>
+          <ShopButtonContainer>
+            <ShopButton href="/home">Continue Shopping</ShopButton>
+          </ShopButtonContainer>
         </HurrayContianer>
       </HurrayOuterContainer>
+      <Footer />
     </div>
   );
 };
