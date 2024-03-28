@@ -12,6 +12,7 @@ export const NavbarContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 900;
 `;
 
 export const NavbarIncontainer = styled.div`
@@ -111,6 +112,7 @@ export const NavCart = styled.a`
   border-right: 0.5px solid #666666;
   text-decoration: none;
   color: white;
+  position: relative;
 `;
 
 export const CartLogo = styled(ShoppingCartOutlinedIcon)`
@@ -130,6 +132,7 @@ export const ProfilePopUp = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: default;
   gap: 16px;
+  z-index: 9999;
 `;
 
 export const Title = styled.p`
@@ -159,4 +162,18 @@ export const LogoutBtn = styled.button`
   border: 1px solid #a03037;
   color: #a03037;
   cursor: pointer;
+`;
+
+export const CartPop = styled.div`
+  display: flex;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: white;
+  color: #a03037;
+  font: normal normal bold 9px/11px Lato;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 35%;
 `;

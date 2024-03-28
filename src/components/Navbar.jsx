@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   CartLogo,
   Link,
@@ -19,24 +19,36 @@ import {
   Title,
   NavSearchIcon,
   NavSearchInput,
+  CartPop,
 } from "../styles/NavbarStyles";
 import MarkunreadMailboxOutlinedIcon from "@mui/icons-material/MarkunreadMailboxOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { useNavigate } from "react-router-dom";
+import { getCartItem } from "../services/CartServices";
 
 // import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [cartList, setCartList] = useState([]);
   const handleClick = () => {
     setOpen(!open);
     console.log("clicked");
+  };
+  const getCart = async () => {
+    const cartItem = await getCartItem();
+    setCartList(cartItem?.result);
   };
   const navigate = useNavigate();
   const handleChange = () => {
     navigate("/");
     window.localStorage.removeItem("token");
   };
+
+  useEffect(() => {
+    getCart();
+    console.log(cartList);
+  }, [cartList.length || cartList[0]?.product_id.bookName || cartList]);
 
   return (
     <NavbarContainer>
@@ -78,6 +90,7 @@ const Navbar = () => {
             </ProfilePopUp>
           </NavProfile>
           <NavCart href="/cart">
+            {cartList.length > 0 ? <CartPop>{cartList.length}</CartPop> : <></>}
             <CartLogo />
             <NameTag>Cart</NameTag>
           </NavCart>

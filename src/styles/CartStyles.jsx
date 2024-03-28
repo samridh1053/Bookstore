@@ -56,6 +56,122 @@ export const CartItemsTitle = styled.h2`
   color: #0a0102;
   padding: 0;
   margin: 0;
+  /* background-color: blanchedalmond; */
+`;
+
+export const CardDetailsContainer = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+export const UserDetail = styled.div`
+  width: 251px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  font: normal normal normal 12px/15px Lato;
+  color: #333232;
+  /* background-color: rebeccapurple; */
+`;
+
+export const UserDetail1 = styled.div`
+  width: 251px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  font: normal normal normal 12px/15px Lato;
+  color: #333232;
+  /* background-color: aqua; */
+`;
+
+export const WorkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  /* background-color: cadetblue; */
+`;
+
+export const WorkInnerContainer = styled.div`
+  display: flex;
+`;
+
+export const WorkInnertext = styled.div`
+  display: flex;
+  font: normal normal medium 15px/20px Roboto;
+`;
+
+export const WorkEdit = styled.div`
+  display: flex;
+  padding-left: 20px;
+  font-size: 12px;
+  color: #a03037;
+  align-items: flex-end;
+`;
+
+export const AddressContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* background-color: darkgreen; */
+  padding-left: 20px;
+`;
+export const AddressContainer1 = styled.div`
+  display: flex;
+  font-size: 12px/16px;
+`;
+
+export const AddressDetail = styled.div`
+  display: flex;
+  width: 512px;
+  height: 46px;
+  outline: none;
+  border-radius: 2px;
+`;
+
+export const CardDetailsContainer2 = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+export const UserDetail3 = styled.div`
+  width: 251px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  font: normal normal normal 12px/15px Lato;
+  color: #333232;
+  /* background-color: rebeccapurple; */
+`;
+
+export const UserDetail4 = styled.div`
+  width: 251px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  font: normal normal normal 12px/15px Lato;
+  color: #333232;
+  /* background-color: rebeccapurple; */
+`;
+
+export const WorkInnerContainer2 = styled.div`
+  display: flex;
+`;
+
+export const WorkInnertext2 = styled.div`
+  display: flex;
+  font: normal normal medium 15px/20px Roboto;
+`;
+
+export const AddContainer2 = styled.div`
+  display: flex;
+  width: 512px;
 `;
 
 export const CartItems = styled.div`

@@ -116,6 +116,7 @@ function Signup() {
       const userData = await loginUser({ email, password });
       // console.log(userData);
       window.localStorage.setItem("token", userData?.result?.accessToken);
+      window.location.href = "/home";
     } catch (error) {
       console.error("Signup or login failed:", error);
     }

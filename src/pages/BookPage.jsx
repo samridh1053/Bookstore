@@ -49,6 +49,13 @@ import {
   IncrementContainer,
   TextContainer,
   IncrementButton,
+  FeedBackCard,
+  FeedBackLeftContainer,
+  RoundContainer,
+  FeedBackTextContainer,
+  FeedbackStarContainer,
+  FeedBackCardTitle,
+  FeedbackContent,
 } from "../styles/BookPageStyles";
 import { getBooks } from "../services/GetBooks";
 import StarIcon from "@mui/icons-material/Star";
@@ -68,6 +75,21 @@ const BookPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
   const [cartList, setCartList] = useState([]);
+
+  const feedBack = [
+    {
+      name: "Aniket Chile",
+      feedback_content:
+        "Good product. Even though the translation could have been better, Chanakya's neeti are thought provoking. Chanakya has written on many different topics and his writings are succinct.",
+      rating: 3,
+    },
+    {
+      name: "Shweta Bodkar",
+      feedback_content:
+        "Good product. Even though the translation could have been better, Chanakya's neeti are thought provoking. Chanakya has written on many different topics and his writings are succinct.",
+      rating: 4,
+    },
+  ];
 
   async function getBookList() {
     const books = await getBooks();
@@ -226,6 +248,36 @@ const BookPage = () => {
                   </ButtonContainer>
                 </FeedbackFormContainer>
               </CustomerFeedbackContainer>
+              {feedBack.map((item) => (
+                <FeedBackCard>
+                  <FeedBackLeftContainer>
+                    <RoundContainer>
+                      {item.name.split(" ").map((ele) => ele[0])}
+                    </RoundContainer>
+                  </FeedBackLeftContainer>
+                  <FeedBackTextContainer>
+                    <FeedBackCardTitle>{item.name}</FeedBackCardTitle>
+                    <FeedbackStarContainer>
+                      <Star>
+                        {1 > item.rating ? <EmptyStar /> : <FIlledStar />}
+                      </Star>
+                      <Star>
+                        {2 > item.rating ? <EmptyStar /> : <FIlledStar />}
+                      </Star>
+                      <Star>
+                        {3 > item.rating ? <EmptyStar /> : <FIlledStar />}
+                      </Star>
+                      <Star>
+                        {4 > item.rating ? <EmptyStar /> : <FIlledStar />}
+                      </Star>
+                      <Star>
+                        {5 > item.rating ? <EmptyStar /> : <FIlledStar />}
+                      </Star>
+                    </FeedbackStarContainer>
+                    <FeedbackContent>{item.feedback_content}</FeedbackContent>
+                  </FeedBackTextContainer>
+                </FeedBackCard>
+              ))}
             </RightContainer>
           </BookPartition>
           {/* Book ({book?.bookName}) */}

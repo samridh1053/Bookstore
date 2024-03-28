@@ -5,6 +5,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export const BookOuterContainer = styled.div`
   width: 100%;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +15,7 @@ export const BookContianer = styled.div`
   padding-top: 60px;
   padding-bottom: 60px;
   width: 100%;
+  height: auto;
   max-width: 1000px;
 `;
 
@@ -206,7 +208,6 @@ export const FavoriteIconContainer = styled(FavoriteIcon)`
 
 export const RightContainer = styled.div`
   width: 55%;
-  height: 50vh;
   display: flex;
   flex-direction: column;
   /* background-color: blue; */
@@ -319,7 +320,7 @@ export const BookDetail = styled.p`
 export const CustomerFeedbackContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
+  padding: 10px 0 20px 0;
 `;
 
 export const FeedbackTitle = styled.h2`
@@ -383,4 +384,54 @@ export const SubmitBtn = styled.button`
   padding: 3px 15px;
   border-radius: 2px;
   cursor: pointer;
+`;
+
+export const FeedBackCard = styled.div`
+  display: flex;
+  gap: 8px;
+  padding-bottom: 10px;
+`;
+
+export const FeedBackLeftContainer = styled.div`
+  display: flex;
+  width: 10%;
+`;
+
+export const RoundContainer = styled.div`
+  font: normal normal normal 11px/15px Roboto;
+  letter-spacing: 0px;
+  color: #707070;
+  width: 27px;
+  height: 27px;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  border: 1px solid #e4e4e4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const FeedBackTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const FeedBackCardTitle = styled.h3`
+  padding: 0;
+  margin: 0;
+  font: normal normal normal 15px/20px Roboto;
+  letter-spacing: 0px;
+  color: #0a0102;
+`;
+
+export const FeedbackStarContainer = styled.div`
+  display: flex;
+`;
+
+export const FeedbackContent = styled.p`
+  padding: 0;
+  margin: 0;
+  font: normal normal normal 12px/16px Roboto;
+  letter-spacing: 0px;
+  color: #707070;
 `;

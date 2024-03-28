@@ -14,6 +14,12 @@ export const DashboardContianer = styled.div`
   max-width: 1000px;
 `;
 
+export const TopContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const TitleContainer = styled.div`
   display: flex;
   padding: 20px 0px;
@@ -21,12 +27,41 @@ export const TitleContainer = styled.div`
   /* background-color: cyan; */
 `;
 
-// export const SortContainer = styled.div`
-//   display: flex;
-//   width: 100px;
-//   background-color: black;
-//   gap: 8px;
-// `;
+export const SortContainer = styled.div`
+  display: flex;
+  font: normal normal normal 12px/15px Lato;
+  letter-spacing: 0px;
+  color: #0a0102;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #e2e2e2;
+  border-radius: 1px;
+  align-items: center;
+  height: fit-content;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 9;
+`;
+
+export const SortUnderContainer = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  width: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #e2e2e2;
+  border-radius: 1px;
+`;
+
+export const SortSetting = styled.p`
+  display: flex;
+  margin: 0;
+  padding: 0;
+`;
 
 export const DashboardTitle = styled.h1`
   font: normal normal normal 25px/33px Roboto;
